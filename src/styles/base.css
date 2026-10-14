@@ -1,0 +1,232 @@
+/* 全域基礎樣式與跨元件共用的小工具 class（按鈕、卡片、分段選擇器） */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-wrap: balance;
+}
+p {
+  margin: 0;
+}
+
+.num {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 頁面容器：手機底部要留出分頁列的高度 */
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 16px;
+  padding-block: 16px calc(var(--tabbar-h) + var(--safe-bottom) + 24px);
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+}
+.card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.card-head h2 {
+  font-size: 17px;
+  font-weight: 900;
+}
+.sub {
+  font-size: 12px;
+  color: var(--mute);
+}
+.hint {
+  font-size: 12px;
+  color: var(--mute);
+  margin-top: 8px;
+}
+.hint.warn {
+  color: var(--warn);
+  font-weight: 500;
+}
+.pill {
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0 6px;
+  border-radius: 99px;
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* 按鈕 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.btn.primary {
+  background: var(--brand);
+  color: var(--brandink);
+}
+.btn.ghost {
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.btn.block {
+  width: 100%;
+  padding-block: 12px;
+  font-size: 15px;
+}
+.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.link {
+  font-size: 12px;
+  color: var(--mute);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 4px 6px;
+}
+.link.danger {
+  color: var(--warn);
+}
+
+/* 分段選擇器（性別、篩選） */
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.seg button {
+  padding: 8px 14px;
+  font-size: 14px;
+}
+.seg.small button {
+  padding: 3px 10px;
+  font-size: 12px;
+}
+.seg button[aria-pressed="true"].m {
+  background: var(--gm);
+  color: var(--gmink);
+  font-weight: 700;
+}
+.seg button[aria-pressed="true"].f {
+  background: var(--gf);
+  color: var(--gfink);
+  font-weight: 700;
+}
+.seg button[aria-pressed="true"].all {
+  background: var(--ink);
+  color: var(--page);
+  font-weight: 700;
+}
+
+@media (min-width: 960px) {
+  .page {
+    padding-block: 24px 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* 子分頁（統計數據的「比賽紀錄／球員統計」） */
+.subtabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
+  border-radius: 12px;
+  background: var(--soft);
+}
+.subtabs button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mute);
+}
+.subtabs button[aria-selected="true"] {
+  background: var(--panel);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: 0 1px 3px var(--shadow);
+}

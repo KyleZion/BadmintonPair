@@ -1,0 +1,87 @@
+/*
+ * 設計 token：所有顏色都從這裡取用，元件內不要寫死顏色。
+ * 三種主題狀態：預設跟隨系統、data-theme="light"、data-theme="dark"
+ */
+:root {
+  --page: #edf1ee;
+  --panel: #ffffff;
+  --soft: #e1e8e3;
+  --line: #c9d4cd;
+  --ink: #10201a;
+  --mute: #5a6a62;
+  --brand: #17604a;
+  --brandink: #ffffff;
+  --court: #1d6b52;
+  --courtwait: #5f8577;
+  --courtline: rgba(236, 246, 240, 0.78);
+  --courtink: #f2f8f4;
+  --chipa: #ffffff;
+  --chipaink: #10201a;
+  --chipb: #f2b632;
+  --chipbink: #2a1d02;
+  --sel: #ff6b5b;
+  --warn: #a34a00;
+  --gm: #2b64c8;
+  --gmink: #ffffff;
+  --gf: #c2337c;
+  --gfink: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.14);
+
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-num: "Bricolage Grotesque", "Noto Sans TC", system-ui, sans-serif;
+
+  --tabbar-h: 58px;
+  --rest-h: 34vh;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0c1411;
+    --panel: #131e19;
+    --soft: #1c2a24;
+    --line: #2a3a33;
+    --ink: #e5eee8;
+    --mute: #92a49b;
+    --brand: #5bcb95;
+    --brandink: #06140d;
+    --court: #16543f;
+    --courtwait: #2c4b41;
+    --courtline: rgba(214, 234, 223, 0.6);
+    --chipa: #f4f7f5;
+    --sel: #ff7d6e;
+    --warn: #f2b632;
+    --gm: #6aa6f5;
+    --gmink: #08172e;
+    --gf: #f28cbf;
+    --gfink: #2a0b1a;
+    --shadow: rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --page: #0c1411;
+  --panel: #131e19;
+  --soft: #1c2a24;
+  --line: #2a3a33;
+  --ink: #e5eee8;
+  --mute: #92a49b;
+  --brand: #5bcb95;
+  --brandink: #06140d;
+  --court: #16543f;
+  --courtwait: #2c4b41;
+  --courtline: rgba(214, 234, 223, 0.6);
+  --chipa: #f4f7f5;
+  --sel: #ff7d6e;
+  --warn: #f2b632;
+  --gm: #6aa6f5;
+  --gmink: #08172e;
+  --gf: #f28cbf;
+  --gfink: #2a0b1a;
+  --shadow: rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
